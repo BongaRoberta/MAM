@@ -7,5 +7,13 @@ namespace mamAPI.Controllers
     [ApiController]
     public class MusicArtistInfoController : ControllerBase
     {
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var artists = new List<MusicArtistInformation>
+            {
+                new MusicArtistInformation {IdNumber=1,  }
+            };
+        }
     }
 }
