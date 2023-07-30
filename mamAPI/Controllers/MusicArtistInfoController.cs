@@ -12,8 +12,15 @@ namespace mamAPI.Controllers
         {
             var artists = new List<MusicArtistInformation>
             {
-                new MusicArtistInformation {IdNumber=1,  }
+                new MusicArtistInformation {
+                    IdNumber = 1,
+                    FirstName = "Bonga",
+                    LastName = "Mokoena",
+                    PreferedName = "Roberta",
+                    Title = "Miss"
+                }
             };
+            return Ok(artists);
         }
     }
 }
