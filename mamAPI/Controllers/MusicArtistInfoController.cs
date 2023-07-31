@@ -45,5 +45,20 @@ namespace mamAPI.Controllers
             artists.Add(artistInformation);
             return Ok(artists);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<List<MusicArtistInformation>>> UpdateArtist(MusicArtistInformation request)
+        {
+            var artist = artists.Find(a => a.IdNumber == request.IdNumber);
+            if (artist == null)
+                return BadRequest("Artist not in our Database");
+
+            artist.FirstName = request.FirstName;
+            artist.LastName = request.LastName;
+            artist.PreferedName = request.PreferedName;
+            artist.Title = request.Title;
+
+            return Ok(artists);
+        }
     }
 }
