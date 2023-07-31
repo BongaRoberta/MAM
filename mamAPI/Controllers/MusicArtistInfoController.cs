@@ -15,12 +15,28 @@ namespace mamAPI.Controllers
                     LastName = "Mokoena",
                     PreferedName = "Roberta",
                     Title = "Miss"
+                },
+                 new MusicArtistInformation {
+                    IdNumber = 2,
+                    FirstName = "Roberta",
+                    LastName = "Mokoena",
+                    PreferedName = "Bonga",
+                    Title = "Ms"
                 }
             };
         [HttpGet]
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
         {
             return Ok(artists);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<MusicArtistInformation>> Get(int id)
+        {
+            var artist = artists.Find(a => a.IdNumber == id);
+            if (artist == null)
+                return BadRequest("Artist not in our Database");
+            return Ok(artist);
         }
 
         [HttpPost]
