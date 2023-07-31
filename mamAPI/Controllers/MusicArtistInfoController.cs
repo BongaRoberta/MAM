@@ -7,10 +7,7 @@ namespace mamAPI.Controllers
     [ApiController]
     public class MusicArtistInfoController : ControllerBase
     {
-        [HttpGet]
-        public async Task<ActionResult<List<MusicArtistInformation>>> Get()
-        {
-            var artists = new List<MusicArtistInformation>
+        private static List<MusicArtistInformation> artists = new List<MusicArtistInformation>
             {
                 new MusicArtistInformation {
                     IdNumber = 1,
@@ -20,6 +17,16 @@ namespace mamAPI.Controllers
                     Title = "Miss"
                 }
             };
+        [HttpGet]
+        public async Task<ActionResult<List<MusicArtistInformation>>> Get()
+        {
+            return Ok(artists);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<List<MusicArtistInformation>>> AddArtist(MusicArtistInformation artistInformation)
+        {
+            artists.Add(artistInformation);
             return Ok(artists);
         }
     }
