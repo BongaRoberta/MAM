@@ -60,5 +60,16 @@ namespace mamAPI.Controllers
 
             return Ok(artists);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<MusicArtistInformation>>> Delete(int id)
+        {
+            var artist = artists.Find(a => a.IdNumber == id);
+            if (artist == null)
+                return BadRequest("Artist not in our Database");
+
+            artists.Remove(artist);
+            return Ok(artists);
+        }
     }
 }
