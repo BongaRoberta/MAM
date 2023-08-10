@@ -35,7 +35,10 @@ namespace mamAPI.Controllers
         {
             var artist = artists.Find(a => a.IdNumber == id);
             if (artist == null)
+            {
                 return BadRequest("Artist not in our Database");
+            }
+               
             return Ok(artist);
         }
 
@@ -51,7 +54,9 @@ namespace mamAPI.Controllers
         {
             var artist = artists.Find(a => a.IdNumber == request.IdNumber);
             if (artist == null)
+            {
                 return BadRequest("Artist not in our Database");
+            }
 
             artist.FirstName = request.FirstName;
             artist.LastName = request.LastName;
@@ -66,7 +71,9 @@ namespace mamAPI.Controllers
         {
             var artist = artists.Find(a => a.IdNumber == id);
             if (artist == null)
+            {
                 return BadRequest("Artist not in our Database");
+            }
 
             artists.Remove(artist);
             return Ok(artists);

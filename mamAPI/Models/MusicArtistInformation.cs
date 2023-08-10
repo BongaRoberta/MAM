@@ -1,4 +1,4 @@
-﻿namespace mamAPI
+﻿namespace mamAPI.Models
 {
     public class MusicArtistInformation
     {
