@@ -12,18 +12,16 @@ namespace mamAPI.Controllers
         private static List<MusicArtistInformation> artists = new List<MusicArtistInformation>
             {
                 new MusicArtistInformation {
-                    IdNumber = 1,
+                    IdNumber = "1",
                     FirstName = "Bonga",
                     LastName = "Mokoena",
-                    PreferedName = "Roberta",
-                    Title = "Miss"
+                    PreferedName = "Roberta"
                 },
                  new MusicArtistInformation {
-                    IdNumber = 2,
+                    IdNumber = "2",
                     FirstName = "Roberta",
                     LastName = "Mokoena",
-                    PreferedName = "Bonga",
-                    Title = "Ms"
+                    PreferedName = "Bonga"
                 }
             };
         [HttpGet]
@@ -33,11 +31,8 @@ namespace mamAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<MusicArtistInformation>> Get(int id)
+        public async Task<ActionResult<MusicArtistInformation>> Get(string id)
         {
-            string connectionString = @"Data Source=KC-CEL23-02;Database=MusicArtistManagement;Integrated Security=false;User ID=FSA;Password=Password;TrustServerCertificate=True;";
-            SqlConnection sqlConnection= new SqlConnection(connectionString);
-            sqlConnection.Open();
             var artist = artists.Find(a => a.IdNumber == id);
             if (artist == null)
             {
@@ -66,13 +61,12 @@ namespace mamAPI.Controllers
             artist.FirstName = request.FirstName;
             artist.LastName = request.LastName;
             artist.PreferedName = request.PreferedName;
-            artist.Title = request.Title;
 
             return Ok(artists);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<MusicArtistInformation>>> Delete(int id)
+        public async Task<ActionResult<List<MusicArtistInformation>>> Delete(string id)
         {
             var artist = artists.Find(a => a.IdNumber == id);
             if (artist == null)
