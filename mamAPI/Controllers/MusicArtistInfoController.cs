@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using mamAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mamAPI.Controllers
