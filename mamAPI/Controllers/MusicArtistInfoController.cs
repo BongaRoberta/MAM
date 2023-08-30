@@ -1,6 +1,7 @@
 ﻿using mamAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace mamAPI.Controllers
 {
@@ -34,6 +35,9 @@ namespace mamAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<MusicArtistInformation>> Get(int id)
         {
+            string connectionString = @"Data Source=KC-CEL23-02;Database=MusicArtistManagement;Integrated Security=false;User ID=FSA;Password=Password;TrustServerCertificate=True;";
+            SqlConnection sqlConnection= new SqlConnection(connectionString);
+            sqlConnection.Open();
             var artist = artists.Find(a => a.IdNumber == id);
             if (artist == null)
             {
