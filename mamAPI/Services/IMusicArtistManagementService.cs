@@ -1,8 +1,8 @@
 ﻿using mamAPI.Models;
 
-namespace mamAPI.Repository
+namespace mamAPI.Services
 {
-    public interface IMusicArtistManagementRepository
+    public interface IMusicArtistManagementService
     {
         List<MusicArtistInformation> GetAll();
     }

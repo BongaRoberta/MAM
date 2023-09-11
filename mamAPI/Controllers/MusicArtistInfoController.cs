@@ -1,4 +1,5 @@
 ﻿using mamAPI.Models;
+using mamAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -9,28 +10,20 @@ namespace mamAPI.Controllers
     [ApiController]
     public class MusicArtistInfoController : ControllerBase
     {
-        private static List<MusicArtistInformation> artists = new List<MusicArtistInformation>
-            {
-                new MusicArtistInformation {
-                    IdNumber = "1",
-                    FirstName = "Bonga",
-                    LastName = "Mokoena",
-                    PreferedName = "Roberta"
-                },
-                 new MusicArtistInformation {
-                    IdNumber = "2",
-                    FirstName = "Roberta",
-                    LastName = "Mokoena",
-                    PreferedName = "Bonga"
-                }
-            };
+        private readonly IMusicArtistManagementService _musicArtistManagement;
+        public MusicArtistInfoController(IMusicArtistManagementService musicArtistManagementService) 
+        {
+            _musicArtistManagement = musicArtistManagementService; 
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
         {
+            var artists = _musicArtistManagement.GetAll();
             return Ok(artists);
         }
 
-        [HttpGet("{id}")]
+       /* [HttpGet("{id}")]
         public async Task<ActionResult<MusicArtistInformation>> Get(string id)
         {
             var artist = artists.Find(a => a.IdNumber == id);
@@ -76,6 +69,7 @@ namespace mamAPI.Controllers
 
             artists.Remove(artist);
             return Ok(artists);
-        }
+        } */
     }
 }
+ 
