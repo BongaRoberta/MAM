@@ -19,9 +19,9 @@ namespace mamAPI.Repository
 
             const string query = "EXEC dbo.sp_GetAll";
 
-            var musicArtistInfo = dbConnection.Query<MusicArtistInformation>(query).ToList();
-            
-            return musicArtistInfo;
+            var something = dbConnection.Query<MusicArtistInformation>(query).ToList();
+
+            return something;
         }
     }
 }

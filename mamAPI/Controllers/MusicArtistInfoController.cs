@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
+
 namespace mamAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -20,7 +21,9 @@ namespace mamAPI.Controllers
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
         {
             var artists = _musicArtistManagement.GetAll();
-            return Ok(artists);
+            var serializedArtistInfo = System.Text.Json.JsonSerializer.Serialize(new { data = artists });
+
+            return Ok(serializedArtistInfo);
         }
 
        /* [HttpGet("{id}")]
