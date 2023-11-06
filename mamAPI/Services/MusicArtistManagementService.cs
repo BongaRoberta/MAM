@@ -12,6 +12,12 @@ namespace mamAPI.Services
         {
             _repo = repo;
         }
+
+        public void Delete(int artistId)
+        {
+            _repo.Delete(artistId);
+        }
+
         public List<MusicArtistInformation> GetAll()
         {
            return _repo.GetAll();

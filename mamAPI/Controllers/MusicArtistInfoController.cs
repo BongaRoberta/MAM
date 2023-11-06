@@ -26,6 +26,18 @@ namespace mamAPI.Controllers
             return Ok(serializedArtistInfo);
         }
 
+        [HttpDelete]
+        public ActionResult DeleteArtistInformation(int artistId) 
+        {
+            if (artistId <= 0) 
+            {
+                return BadRequest(new { message = "Artist information does not exist" });
+            }
+            _musicArtistManagement.Delete(artistId);
+
+            return Ok(new {message = "Artist information deleted"});
+        }
+
        /* [HttpGet("{id}")]
         public async Task<ActionResult<MusicArtistInformation>> Get(string id)
         {
