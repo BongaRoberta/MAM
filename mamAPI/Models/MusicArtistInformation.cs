@@ -16,6 +16,5 @@ public class MusicArtistInformation
     public string? MusicGenreStyle { get; set; }
     public string? BriefArtistDescription { get; set; }
     public string? PastPerformance { get; set; }
-    public byte[]? Photograph { get; set; }
 }
 
