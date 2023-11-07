@@ -31,7 +31,7 @@ namespace mamAPI.Repository
         {
             using IDbConnection dbConnection = new SqlConnection(_dbConnectionStringProvider.GetConnectionString());
 
-            const string query = "dbo.sp_GetAll";
+            const string query = "sp_GetAllArtist";
 
             var allArtist = dbConnection.Query<MusicArtistInformation>(query).ToList();
 
