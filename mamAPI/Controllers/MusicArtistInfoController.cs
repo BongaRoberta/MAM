@@ -16,6 +16,12 @@ namespace mamAPI.Controllers
         {
             _musicArtistManagement = musicArtistManagementService;
         }
+        [HttpPost]
+        public async Task<ActionResult<List<MusicArtistInformation>>> AddArtistInformation(MusicArtistInformation musicArtistInformation)
+        {
+            _musicArtistManagement.AddNewArtist(musicArtistInformation);
+            return Ok(musicArtistInformation);
+        }
 
         [HttpGet]
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
@@ -26,15 +32,24 @@ namespace mamAPI.Controllers
             return Ok(serializedArtistInfo);
         }
 
+        [HttpGet("{artistId}")]
+        public async Task<ActionResult<MusicArtistInformation>> GetArtistById(int artistId)
+        {
+            var artist = _musicArtistManagement.GetArtistById(artistId);
+            var serializedArtistInfo = System.Text.Json.JsonSerializer.Serialize(new { data = artist });
+
+            return Ok(serializedArtistInfo);
+        }
+
         [HttpPut]
-        public ActionResult UpdateArtistInformation(int artistId)
+        public ActionResult UpdateArtistInformation(int artistId, MusicArtistInformation musicArtistInformation)
         {
             if (artistId <= 0)
             {
                 return BadRequest(new { message = "Artist does not exist" });
             }
 
-            _musicArtistManagement.UpdateArtistInformation(artistId);
+            _musicArtistManagement.UpdateArtistInformation(artistId, musicArtistInformation);
 
             return Ok(new { message = "Artist information updated" });
         }

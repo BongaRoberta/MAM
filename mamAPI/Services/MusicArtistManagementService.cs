@@ -12,20 +12,28 @@ namespace mamAPI.Services
         {
             _repo = repo;
         }
-
+        public void AddNewArtist(MusicArtistInformation musicArtistInformation)
+        {
+            _repo.AddNewArtist(musicArtistInformation);
+        }
         public List<MusicArtistInformation> GetAllArtists()
         {
             return _repo.GetAllArtists();
         }
-
+        public List<MusicArtistInformation> GetArtistById(int artistId)
+        {
+            return _repo.GetArtistById(artistId);
+        }
         public void DeleteArtist(int artistId)
         {
             _repo.DeleteArtist(artistId);
         }
 
-        public void UpdateArtistInformation(int artistId)
+        public void UpdateArtistInformation(int artistId, MusicArtistInformation musicArtistInformation)
         {
-            _repo.UpdateArtist(artistId);
+            _repo.UpdateArtist(artistId, musicArtistInformation);
         }
+
+        
     }
 }
