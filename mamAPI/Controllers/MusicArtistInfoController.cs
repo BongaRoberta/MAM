@@ -16,6 +16,7 @@ namespace mamAPI.Controllers
         {
             _musicArtistManagement = musicArtistManagementService;
         }
+
         [HttpGet]
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
         {
@@ -37,6 +38,7 @@ namespace mamAPI.Controllers
 
             return Ok(new { message = "Artist information updated" });
         }
+
         [HttpDelete]
         public ActionResult DeleteArtistInformation(int artistId)
         {
