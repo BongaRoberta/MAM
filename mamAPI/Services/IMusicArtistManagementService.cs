@@ -4,8 +4,8 @@ namespace mamAPI.Services
 {
     public interface IMusicArtistManagementService
     {
-        List<MusicArtistInformation> GetAll();
-        void Delete(int artistId);
-
+        List<MusicArtistInformation> GetAllArtists();
+        void DeleteArtist(int artistId);
+        void UpdateArtistInformation(int artistId);
     }
 }

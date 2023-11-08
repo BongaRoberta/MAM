@@ -4,7 +4,8 @@ namespace mamAPI.Repository
 {
     public interface IMusicArtistManagementRepository
     {
-        List<MusicArtistInformation> GetAll();
-        void Delete(int artistId);
+        List<MusicArtistInformation> GetAllArtists();
+        void UpdateArtist(int artistId);
+        void DeleteArtist(int artistId);
     }
 }

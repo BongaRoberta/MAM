@@ -14,8 +14,27 @@ namespace mamAPI.Repository
         {
             _dbConnectionStringProvider = dbConnectionStringProvider;
         }
+        public List<MusicArtistInformation> GetAllArtists()
+        {
+            using IDbConnection dbConnection = new SqlConnection(_dbConnectionStringProvider.GetConnectionString());
 
-        public void Delete(int artistId)
+            const string query = "sp_GetAllArtist";
+
+            var allArtist = dbConnection.Query<MusicArtistInformation>(query).ToList();
+
+            return allArtist;
+        }
+        public void UpdateArtist(int artistId)
+        {
+            using IDbConnection dbConnection = new SqlConnection(_dbConnectionStringProvider.GetConnectionString());
+
+            const string query = "sp_UpdateArtistInformation";
+
+            var parameter = new { ArtistId = artistId };
+
+            dbConnection.Execute(query, parameter, commandType: CommandType.StoredProcedure);
+        }
+        public void DeleteArtist(int artistId)
         {
             using IDbConnection dbConnection = new SqlConnection(_dbConnectionStringProvider.GetConnectionString());
 
@@ -25,17 +44,6 @@ namespace mamAPI.Repository
 
             dbConnection.Execute(query, parameter, commandType: CommandType.StoredProcedure);
 
-        }
-
-        public List<MusicArtistInformation> GetAll()
-        {
-            using IDbConnection dbConnection = new SqlConnection(_dbConnectionStringProvider.GetConnectionString());
-
-            const string query = "sp_GetAllArtist";
-
-            var allArtist = dbConnection.Query<MusicArtistInformation>(query).ToList();
-
-            return allArtist;
         }
     }
 }

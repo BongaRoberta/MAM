@@ -12,79 +12,42 @@ namespace mamAPI.Controllers
     public class MusicArtistInfoController : ControllerBase
     {
         private readonly IMusicArtistManagementService _musicArtistManagement;
-        public MusicArtistInfoController(IMusicArtistManagementService musicArtistManagementService) 
+        public MusicArtistInfoController(IMusicArtistManagementService musicArtistManagementService)
         {
-            _musicArtistManagement = musicArtistManagementService; 
+            _musicArtistManagement = musicArtistManagementService;
         }
-
         [HttpGet]
         public async Task<ActionResult<List<MusicArtistInformation>>> Get()
         {
-            var artists = _musicArtistManagement.GetAll();
+            var artists = _musicArtistManagement.GetAllArtists();
             var serializedArtistInfo = System.Text.Json.JsonSerializer.Serialize(new { data = artists });
 
             return Ok(serializedArtistInfo);
         }
 
-        [HttpDelete]
-        public ActionResult DeleteArtistInformation(int artistId) 
+        [HttpPut]
+        public ActionResult UpdateArtistInformation(int artistId)
         {
-            if (artistId <= 0) 
+            if (artistId <= 0)
+            {
+                return BadRequest(new { message = "Artist does not exist" });
+            }
+
+            _musicArtistManagement.UpdateArtistInformation(artistId);
+
+            return Ok(new { message = "Artist information updated" });
+        }
+        [HttpDelete]
+        public ActionResult DeleteArtistInformation(int artistId)
+        {
+            if (artistId <= 0)
             {
                 return BadRequest(new { message = "Artist information does not exist" });
             }
-            _musicArtistManagement.Delete(artistId);
 
-            return Ok(new {message = "Artist information deleted"});
+            _musicArtistManagement.DeleteArtist(artistId);
+
+            return Ok(new { message = "Artist information deleted" });
         }
-
-       /* [HttpGet("{id}")]
-        public async Task<ActionResult<MusicArtistInformation>> Get(string id)
-        {
-            var artist = artists.Find(a => a.IdNumber == id);
-            if (artist == null)
-            {
-                return BadRequest("Artist not in our Database");
-            }
-               
-            return Ok(artist);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<List<MusicArtistInformation>>> AddArtist(MusicArtistInformation artistInformation)
-        {
-            artists.Add(artistInformation);
-            return Ok(artists);
-        }
-
-        [HttpPut]
-        public async Task<ActionResult<List<MusicArtistInformation>>> UpdateArtist(MusicArtistInformation request)
-        {
-            var artist = artists.Find(a => a.IdNumber == request.IdNumber);
-            if (artist == null)
-            {
-                return BadRequest("Artist not in our Database");
-            }
-
-            artist.FirstName = request.FirstName;
-            artist.LastName = request.LastName;
-            artist.PreferedName = request.PreferedName;
-
-            return Ok(artists);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<List<MusicArtistInformation>>> Delete(string id)
-        {
-            var artist = artists.Find(a => a.IdNumber == id);
-            if (artist == null)
-            {
-                return BadRequest("Artist not in our Database");
-            }
-
-            artists.Remove(artist);
-            return Ok(artists);
-        } */
     }
 }
- 
