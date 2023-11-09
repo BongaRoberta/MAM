@@ -94,9 +94,7 @@ namespace mamAPI.Repository
 
             const string query = "sp_deleteArtist";
 
-            var parameter = new { ArtistId = artistId };
-
-            dbConnection.Execute(query, parameter, commandType: CommandType.StoredProcedure);
+            dbConnection.Execute(query, new { ArtistId = artistId }, commandType: CommandType.StoredProcedure);
         }
 
         public List<MusicArtistInformation> SearchArtist(string searchTerm)
