@@ -16,6 +16,7 @@ namespace mamAPI.Controllers
         {
             _musicArtistManagement = musicArtistManagementService;
         }
+
         [HttpPost]
         public async Task<ActionResult<List<MusicArtistInformation>>> AddArtistInformation(MusicArtistInformation musicArtistInformation)
         {
@@ -37,6 +38,15 @@ namespace mamAPI.Controllers
         {
             var artist = _musicArtistManagement.GetArtistById(artistId);
             var serializedArtistInfo = System.Text.Json.JsonSerializer.Serialize(new { data = artist });
+
+            return Ok(serializedArtistInfo);
+        }
+
+        [HttpGet("searchTerm")]
+        public async Task<ActionResult<List<MusicArtistInformation>>> SearchArtist(string searchTerm)
+        {
+            var artists = _musicArtistManagement.SearchArtist(searchTerm);
+            var serializedArtistInfo = System.Text.Json.JsonSerializer.Serialize(new { data = artists });
 
             return Ok(serializedArtistInfo);
         }
