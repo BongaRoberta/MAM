@@ -10,7 +10,5 @@ namespace mamAPI.Repository
         List<MusicArtistInformation> SearchArtist(string searchTerm);
         void UpdateArtist(int artistId, MusicArtistInformation musicArtistInformation);
         void DeleteArtist(int artistId);
-        
-
     }
 }

@@ -167,7 +167,6 @@ namespace mamAPI.Repository
 
             int checksum = int.Parse(idNumber[12].ToString());
             int sum = 0;
-
             for (int i = 0; i < 12; i++)
             {
                 int digit = int.Parse(idNumber[i].ToString());
