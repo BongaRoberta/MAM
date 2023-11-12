@@ -37,7 +37,7 @@ namespace mamAPI.Repository
             parameter.Add("@MusicGenreStyle", musicArtistInformation.MusicGenreStyle);
             parameter.Add("@BriefArtistDescription", musicArtistInformation.BriefArtistDescription);
             parameter.Add("@PastPerformance", musicArtistInformation.PastPerformance);
-            parameter.Add("@Age", GetAge(musicArtistInformation.IdNumber));
+            parameter.Add("@Age", musicArtistInformation.Age);
 
             dbConnection.Execute(query, parameter, commandType: CommandType.StoredProcedure);
         }
@@ -109,35 +109,6 @@ namespace mamAPI.Repository
             var searchArtist = dbConnection.Query<MusicArtistInformation>(query, parameter, commandType: CommandType.StoredProcedure).ToList();
 
             return searchArtist;
-        }
-
-        public int GetAge(string IdNumber)
-        {
-            int age = 0;
-            if (IdNumber != null)
-            {
-                string dateOfBirth = IdNumber.Substring(0, 6);
-                
-                if (DateTime.TryParseExact(dateOfBirth, "yyMMdd", null, System.Globalization.DateTimeStyles.None, out DateTime birthdate))
-                {
-                    age = CalculateAge(birthdate);
-                }
-            }
-            
-            return age;
-        }
-
-        static int CalculateAge(DateTime birthdate)
-        {
-            DateTime today = DateTime.Today;
-            int age = today.Year - birthdate.Year;
-
-            if (birthdate.Date > today.AddYears(-age))
-            {
-                age--;
-            }
-
-            return age;
         }
 
         public static bool IsValidIdNumber(string idNumber)

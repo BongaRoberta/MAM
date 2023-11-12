@@ -18,7 +18,7 @@ namespace mamAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<MusicArtistInformation>>> AddArtistInformation(MusicArtistInformation musicArtistInformation)
+        public ActionResult<List<MusicArtistInformation>> AddArtistInformation(MusicArtistInformation musicArtistInformation)
         {
             _musicArtistManagement.AddNewArtist(musicArtistInformation);
             return Ok(musicArtistInformation);

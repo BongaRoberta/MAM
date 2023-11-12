@@ -15,6 +15,7 @@ namespace mamAPI.Services
 
         public void AddNewArtist(MusicArtistInformation musicArtistInformation)
         {
+            musicArtistInformation.Age = GetAge(musicArtistInformation.IdNumber);
             _repo.AddNewArtist(musicArtistInformation);
         }
 
@@ -41,6 +42,34 @@ namespace mamAPI.Services
         public List<MusicArtistInformation> SearchArtist(string searchTerm)
         {
             return _repo.SearchArtist(searchTerm);
+        }
+
+        public int GetAge(string IdNumber)
+        {
+            int age = 0;
+            if (IdNumber != null)
+            {
+                string dateOfBirth = IdNumber.Substring(0, 6);
+
+                if (DateTime.TryParseExact(dateOfBirth, "yyMMdd", null, System.Globalization.DateTimeStyles.None, out DateTime birthdate))
+                {
+                    age = CalculateAge(birthdate);
+                }
+            }
+
+            return age;
+        }
+        static int CalculateAge(DateTime birthdate)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthdate.Year;
+
+            if (birthdate.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }
