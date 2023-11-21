@@ -3,7 +3,7 @@ using mamAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-
+using Newtonsoft.Json;
 
 namespace mamAPI.Controllers
 {
@@ -52,16 +52,21 @@ namespace mamAPI.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdateArtistInformation(int artistId, MusicArtistInformation musicArtistInformation)
+        public ActionResult UpdateArtistInformation(int artistId, [FromBody] object musicArtistInformation)
         {
             if (artistId <= 0)
             {
                 return BadRequest(new { message = "Artist does not exist" });
             }
 
-            _musicArtistManagement.UpdateArtistInformation(artistId, musicArtistInformation);
+            var jsonString = musicArtistInformation.ToString()??string.Empty;
+            var artistInfo = JsonConvert.DeserializeObject<MusicArtistInformation>(jsonString);
+
+            artistInfo.ArtistId = artistId;
+            _musicArtistManagement.UpdateArtistInformation(artistId, artistInfo);
 
             return Ok(new { message = "Artist information updated" });
+            //https://localhost:7263/api/MusicArtistInfo?artistId=((state.updateArtist.artistRecord.ArtistId))
         }
 
         [HttpDelete]
