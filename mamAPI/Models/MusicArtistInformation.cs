@@ -11,10 +11,8 @@ public class MusicArtistInformation
     public string CityBased { get; set; }
     public string ContactNumber { get; set; }
     public string EmailAddress { get; set; }
-    public string? InstagramHandle { get; set; }
     public string? TikTokHandle { get; set; }
     public string MusicGenreStyle { get; set; }
-    public string? BriefArtistDescription { get; set; }
     public string? PastPerformance { get; set; }
     public int Age { get; set; }
 }

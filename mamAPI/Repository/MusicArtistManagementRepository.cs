@@ -32,10 +32,8 @@ namespace mamAPI.Repository
             parameter.Add("@CityBased", musicArtistInformation.CityBased);
             parameter.Add("@ContactNumber", musicArtistInformation.ContactNumber);
             parameter.Add("@EmailAddress", musicArtistInformation.EmailAddress);
-            parameter.Add("@InstagramHandle", musicArtistInformation.InstagramHandle);
             parameter.Add("@TikTokHandle", musicArtistInformation.TikTokHandle);
             parameter.Add("@MusicGenreStyle", musicArtistInformation.MusicGenreStyle);
-            parameter.Add("@BriefArtistDescription", musicArtistInformation.BriefArtistDescription);
             parameter.Add("@PastPerformance", musicArtistInformation.PastPerformance);
             parameter.Add("@Age", musicArtistInformation.Age);
 
@@ -79,10 +77,8 @@ namespace mamAPI.Repository
             parameter.Add("@CityBased", musicArtistInformation.CityBased);
             parameter.Add("@ContactNumber", musicArtistInformation.ContactNumber);
             parameter.Add("@EmailAddress", musicArtistInformation.EmailAddress);
-            parameter.Add("@InstagramHandle", musicArtistInformation.InstagramHandle);
             parameter.Add("@TikTokHandle", musicArtistInformation.TikTokHandle);
             parameter.Add("@MusicGenreStyle", musicArtistInformation.MusicGenreStyle);
-            parameter.Add("@BriefArtistDescription", musicArtistInformation.BriefArtistDescription);
             parameter.Add("@PastPerformance", musicArtistInformation.PastPerformance);
 
             dbConnection.Execute(query, parameter, commandType: CommandType.StoredProcedure);

@@ -63,10 +63,10 @@ namespace mamAPI.Controllers
             var artistInfo = JsonConvert.DeserializeObject<MusicArtistInformation>(jsonString);
 
             artistInfo.ArtistId = artistId;
+            artistInfo.CityBased = artistInfo.CityBased.Trim();
             _musicArtistManagement.UpdateArtistInformation(artistId, artistInfo);
 
             return Ok(new { message = "Artist information updated" });
-            //https://localhost:7263/api/MusicArtistInfo?artistId=((state.updateArtist.artistRecord.ArtistId))
         }
 
         [HttpDelete]
