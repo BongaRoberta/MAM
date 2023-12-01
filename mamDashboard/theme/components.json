@@ -1,0 +1,129 @@
+{
+	"themeConfig": {
+		"isStyleTheme": false
+	},
+	"button": {
+		"path": "button"
+	},
+	"container": {
+		"path": "container"
+	},
+	"containerSimple": {
+		"path": "containerSimple"
+	},
+	"contextMenuManager": {
+		"path": "contextMenuManager"
+	},
+	"dataLoader": {
+		"path": "dataLoader"
+	},
+	"canvas": {
+		"path": "canvas"
+	},
+	"datePicker": {
+		"path": "datePicker",
+		"propSpec": {
+			"popupBackgroundColor": {
+				"dft": "primaryWhite"
+			},
+			"popupDateColorSelected": {
+				"dft": "primaryWhite"
+			},
+			"popupDateBackgroundColorSelected": {
+				"dft": "primaryDeloitteGreen"
+			},
+			"popupTodayColor": {
+				"dft": "primaryWhite"
+			},
+			"popupTodayBackgroundColor": {
+				"dft": "primaryBlue1"
+			}
+		}
+	},
+	"focusLine": {
+		"path": "focusLine"
+	},
+	"grid": {
+		"path": "grid"
+	},
+	"icon": {
+		"path": "icon"
+	},
+	"image": {
+		"path": "image"
+	},
+	"input": {
+		"path": "input",
+		"propSpec": {
+			"color": {
+				"dft": "primaryText"
+			},
+			"colorPlaceholder": {
+				"dft": "secondaryText"
+			},
+			"focusLine": {
+				"dft": false
+			},
+			"errorLine": {
+				"dft": false
+			},
+			"focusLineColor": {
+				"dft": "primary"
+			}
+		}
+	},
+	"label": {
+		"path": "label",
+		"propSpec": {
+			"userSelect": {
+				"dft": "text"
+			}
+		}
+	},
+	"localStorageManager": {
+		"path": "localStorageManager"
+	},
+	"markdownLabel": {
+		"path": "markdownLabel"
+	},
+	"modal": {
+		"path": "modal"
+	},
+	"notifications": {
+		"path": "notifications"
+	},
+	"popup": {
+		"path": "popup",
+		"propSpec": {
+			"lookupPrps": {
+				"dft": {
+					"colorRowBg": "iconPrimary"
+				}
+			}
+		}
+	},
+	"radio": {
+		"path": "radio"
+	},
+	"repeater": {
+		"path": "repeater"
+	},
+	"scriptRunner": {
+		"path": "scriptRunner"
+	},
+	"systemModal": {
+		"path": "systemModal"
+	},
+	"timePicker": {
+		"path": "timePicker"
+	},
+	"viewport": {
+		"path": "viewport"
+	},
+	"zoomPanner": {
+		"path": "zoomPanner"
+	},
+	"containerMovable": {
+		"path": "containerMovable"
+	}
+}

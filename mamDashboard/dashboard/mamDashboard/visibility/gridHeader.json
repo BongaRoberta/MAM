@@ -1,0 +1,230 @@
+{
+	"acceptPrps": {
+		"artistId": "string",
+		"name": "string",
+		"stageName": "string",
+		"lastName": "string",
+		"gender": "string",
+		"cityBased": "string",
+		"contactNumber": "string",
+		"emailAddress": "string",
+		"instagramHandle": "string",
+		"tikTokHandle": "string",
+		"musicGenre": "string",
+		"briefDescription": "strinf",
+		"pastPerfomances": "string"
+	},
+	"type": "container",
+	"prps": {
+		"dir": "horizontal",
+		"borderTop": "1px solid var(--colors-divider)",
+		"borderRight": "1px solid var(--colors-divider)",
+		"borderBottom": "1px solid var(--colors-divider)",
+		"marginRight": "{theme.global.mediumPadding}",
+		"borderRadius":"smallPadding",
+		"marginBottom":"smallPadding"
+	},
+	"wgts": [
+		{
+			"type": "container",
+			"prps": {
+				"width": "5%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderLeft": "1px solid var(--colors-divider)",
+				"borderRadius":"smallPadding",
+				"mainAxisAlign": "center"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%artistId%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"width": "10%",
+				"mainAxisAlign": "center",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)",
+				"borderLeft": "1px solid var(--colors-divider)"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%name%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"mainAxisAlign": "center",
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%stageName%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"mainAxisAlign": "center",
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%lastName%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"mainAxisAlign": "center",
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%gender%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"width": "5%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)",
+				"mainAxisAlign": "center"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%age%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"mainAxisAlign": "center",
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%cityBased%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)",
+				"mainAxisAlign": "center"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%contactNumber%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"borderRight": "1px solid var(--colors-divider)",
+				"mainAxisAlign": "center"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%musicGenre%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		},
+		{
+			"type": "container",
+			"prps": {
+				"width": "10%",
+				"padding": true,
+				"paddingSize": "smallPadding noPadding smallPadding smallPadding",
+				"mainAxisAlign": "center"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%emailAddress%",
+						"color": "white",
+						"bold":true
+					}
+				}
+			]
+		}
+	]
+}

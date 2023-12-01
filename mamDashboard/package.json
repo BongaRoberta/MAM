@@ -1,0 +1,24 @@
+{
+	"name": "opus_accreditation_materials",
+	"version": "0.1.0",
+	"description": "Opus Accreditation Materials",
+	"dependencies": {},
+	"scripts": {
+		"start": "concurrently --kill-others \"npx serve -p 5000\" \"nodemon node_modules/opus_packager/src/packager.js\""
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"packaged/mdaPackage.json"
+		],
+		"watch": [
+			"."
+		],
+		"ignoreRoot": [],
+		"delay": 100
+	},
+	"author": "intenda",
+	"devDependencies": {
+		"concurrently": "^8.0.1",
+		"opus_packager": "^3.3.0"
+	}
+}

@@ -1,0 +1,187 @@
+{
+	"type": "containerSimple",
+	"prps": {
+		"padding": true,
+		"position": "absolute",
+		"left": "10%",
+		"top": "10%",
+		"right": "10%",
+		"border": "2px solid #69818D",
+		"borderRadius": "mediumPadding"
+	},
+	"wgts": [
+		{
+			"type": "label",
+			"prps": {
+				"cpt": "About Our Platform",
+				"bold": true,
+				"labelType": "h1",
+				"color": "white"
+			}
+		},
+		{
+			"type": "containerSimple",
+			"prps": {
+				"padding": true
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "Welcome to Music Artist Management",
+						"bold": true,
+						"labelType": "h2",
+						"color": "white",
+						"marginBottom": "mediumPadding"
+					}
+				},
+				{
+					"type": "containerSimple",
+					"prps": {
+						"dir": "horizontal",
+						"marginBottom": "mediumPadding"
+					},
+					"wgts": [
+						{
+							"type": "label",
+							"prps": {
+								"cpt": "At",
+								"color": "white",
+								"marginRight": "tinyPadding"
+							}
+						},
+						{
+							"type": "label",
+							"prps": {
+								"cpt": "MAM",
+								"color": "black",
+								"fontSize": "padding",
+								"marginRight": "tinyPadding"
+							}
+						},
+						{
+							"type": "label",
+							"prps": {
+								"cpt": ",we are passionate about simplifying the management of music artist information. Our platform provides a user-friendly interface that allows you to perform fundamental CRUD (Create, Read, Update, Delete) operations seamlessly. Whether you're an artist manager, music enthusiast, or industry professional, our website offers a robust set of features to streamline your workflow",
+								"color": "white",
+								"padding": true,
+								"paddingSize": "mediumPadding noPadding noPadding noPadding"
+							}
+						}
+					]
+				},
+				{
+					"type": "label",
+					"prps": {
+						"color": "white",
+						"marginBottom": "padding",
+						"cpt": "As part of our commitment and mission, MAM aspires to serve as a steadfast and unwavering foundation for artists, dedicated to enriching their careers, lifestyles, and overall well-being. Our goal is to establish a connection between their talents and a global audience, reinforcing our dedication to supporting and empowering artists in their creative journeys."
+					}
+				},
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "Feedback and Support",
+						"labelType": "h3",
+						"bold": true,
+						"color": "#69818D",
+						"marginBottom": "smallPadding"
+					}
+				},
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "We value your feedback! If you have suggestions, encounter any issues, or need assistance, our support team [Bonga Mokoena] is ready to help. Contact us through Teams [Bonga Mokoena] for prompt assistance.",
+						"color": "white",
+						"marginRight": "tinyPadding",
+						"marginBottom": "smallPadding"
+					}
+				},
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "Thank you for choosing Music Artist Management for your music artist management needs. We hope our platform enhances your experience in managing and enjoying music!",
+						"color": "white",
+						"marginRight": "tinyPadding"
+					}
+				}
+			]
+		},
+		{
+			"type": "containerSimple",
+			"prps": {},
+			"wgts": [
+				{
+					"scope": "container",
+					"type": "container",
+					"prps": {
+						"crossAxisAlign": "center"
+					},
+					"wgts": [
+						{
+							"type": "container",
+							"prps": {
+								"canClick": true,
+								"fireScript": {
+									"actions": [
+										{
+											"type": "setState",
+											"target": "||container||",
+											"key": "extraWgts",
+											"value": [
+												{
+													"relId": "containerTwo",
+													"type": "container",
+													"prps": {
+														"crossAxisAlign": "center",
+														"canClick": true,
+														"fireScript": {
+															"actions": [
+																{
+																	"type": "setState",
+																	"target": "||container||",
+																	"key": "extraWgts",
+																	"value": [
+																		{
+																			"type": "label",
+																			"prps": {
+																				"cpt": "With Bonga Roberta Mokoena coached by Siphamandla Mzobe",
+																				"color":"white"
+																			}
+																		}
+																	]
+																}
+															]
+														}
+													},
+													"wgts": [
+														{
+															"type": "label",
+															"prps": {
+																"cpt": "Opus",
+																"color": "#2596be"
+															}
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							},
+							"wgts": [
+								{
+									"type": "label",
+									"prps": {
+										"cpt": "PROUDLY DEVELOPED USING:",
+										"color": "#2596be"
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

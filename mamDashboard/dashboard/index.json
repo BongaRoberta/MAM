@@ -1,0 +1,12 @@
+{
+    "startup": "mamDashboard/landingPage",
+    "themes": [
+        "system",
+        "colors",
+        "global",
+        "components",
+        "myColors",
+        "mySystem"
+    ],
+    "themeSets": []
+}

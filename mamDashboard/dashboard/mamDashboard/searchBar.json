@@ -1,0 +1,59 @@
+{
+	"type": "containerSimple",
+	"prps": {
+		"padding": true,
+		"dir": "horizontal",
+		"position": "absolute",
+		"left": "50%",
+		"top": "50%",
+		"transform": "translate(-50%, -50%)"
+	},
+	"wgts": [
+		{
+			"id": "searchItem",
+			"type": "input",
+			"prps": {
+				"border": "6px solid #36464d",
+				"borderRadius": "mediumPadding",
+				"placeholder": "       Enter item to search (e.g City, Name, Age)",
+				"backgroundColor": "white",
+				"width": "30vw",
+				"marginRight": "smallPadding",
+				"padding":true
+			}
+		},
+		{
+			"type": "container",
+			"prps": {
+				"canClick": true,
+				"mainAxisAlign": "center",
+				"fireScript": {
+					"actions": [
+						{
+							"type": "setState",
+							"target": "view2",
+							"key": "value",
+							"value": "mamDashboard/viewSearchedItem"
+						},
+						{
+							"type": "createFlow",
+							"from": "searchItem",
+							"fromKey": "value",
+							"to": "searchedArtistsGrid",
+							"toKey": "searchTerm"
+						}
+					]
+				}
+			},
+			"wgts": [
+				{
+					"type": "icon",
+					"prps": {
+						"value": "search",
+						"color": "white"
+					}
+				}
+			]
+		}
+	]
+}

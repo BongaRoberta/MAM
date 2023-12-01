@@ -1,0 +1,54 @@
+{
+	"themeConfig":{
+		"isStyleTheme":true
+	},
+	"someRedColor":"{theme.colors.primary}",
+	"transparent": "transparent",
+
+	"lightPrimary": "#FF5A53",
+	"primary": "#FF0028",
+	"darkPrimary": "#C30000",
+
+	"lightSecondary": "#4B3D7E",
+	"secondary": "#1D1651",
+	"darkSecondary": "#000029",
+
+	"iconPrimary": "#FFFFFF",
+	"iconSecondary": "#000000",
+
+	"primaryText": "#212121",
+	"secondaryText": "#757575",
+
+	"divider": "#BDBDBD",
+	"menuDivider": "#C4C4C4",
+
+	"veryLightGrey":"#f8f9fa",
+	"lightGrey": "#eeeeee",
+	"mediumGrey": "#bdbdbd",
+	"darkGrey": "#212121",
+
+	"error": "#D32F2F",
+	"warning": "#FB8C00",
+	"info": "#17a2b8",
+	"success": "#4CAF50",
+
+	"babyBlue": "#B3C7D7",
+	"khaki": "#BAA769",
+	"paleMint": "#B2DCCB",
+	"samantha": "#F36F21",
+	"seaGreen": "#00A77D",
+	"lightGreen":"#90EE90",
+	"skyBlue": "#516CB3",
+	"scrollbarTrack": "#eeeeee",
+	"scrollbarThumb": "#bdbdbd",
+	"teal":"#008080",
+	"newBorder":"#36464d",
+
+	"fluorescentBlue":"#26f7fd",
+
+	"gradientPurple":"linear-gradient(90deg, #8871B1 0%, #22143C 85%)",
+	"iconGradient":"linear-gradient(to top, #41389f 0%, #3D3686 50%, #2A266E 100%)",
+	"iconGold":"#e8ae1a",
+	"borderGradient":"#2e2e63",
+	"revertIconGradient":"linear-gradient(to top, #605CCE 0%, #776EFF 50%, #897CFF 100%)"
+}

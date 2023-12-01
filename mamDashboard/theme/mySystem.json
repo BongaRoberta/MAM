@@ -1,0 +1,9 @@
+{
+	"themeConfig": {
+		"isStyleTheme": false
+	},
+	"mdaLocation": "http://localhost:5000",
+	"guitarist": "{theme.mySystem.mdaLocation}/images/assignment_2/image_1.png",
+	"drummer": "{theme.mySystem.mdaLocation}/images/assignment_2/image_2.png",
+	"vocalist": "{theme.mySystem.mdaLocation}/images/assignment_2/image_3.png"
+}

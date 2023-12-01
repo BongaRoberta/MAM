@@ -1,0 +1,771 @@
+{
+    "type": "containerSimple",
+    "prps": {
+        "padding": true,
+        "width": "50vw",
+        "height": "90vh",
+        "position": "absolute",
+        "left": "50%",
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "borderRadius": "mediumPadding",
+        "border": "2px solid white"
+    },
+    "wgts": [
+        {
+            "type": "containerSimple",
+            "prps": {
+                "crossAxisAlign": "center",
+                "marginBottom": "mediumPadding"
+            },
+            "wgts": [
+                {
+                    "type": "label",
+                    "prps": {
+                        "color": "white",
+                        "cpt": "Add New Artist",
+                        "fontSize": "mediumPadding"
+                    }
+                }
+            ]
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "Id Number",
+                        "placeholder": "    Enter your SA Id Number...",
+                        "id": "idNumber",
+                        "icon": "star",
+                        "dataType": "integer"
+                    }
+                }
+            ],
+            "prps": {
+                "scps": [
+                    {
+                        "id": "sIN",
+                        "triggers": [
+                            {
+                                "event": "onBlur",
+                                "source": "idNumber",
+                                "matchEvaluation": "all",
+                                "match": [
+                                    {
+                                        "comparison": "isEqual",
+                                        "source": "idNumber",
+                                        "value": "{{state.idNumber.value.length}}",
+                                        "compareValue": 13
+                                    },
+                                    {
+                                        "comparison": "isLessThan",
+                                        "source": "idNumber",
+                                        "value": "{{state.idNumber.value.length}}",
+                                        "compareValue": 14
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "applyComparison",
+                                "operator": "all",
+                                "comparisons": [
+                                    {
+                                        "operator": "isEqual",
+                                        "value": "{{sIN.state.idNumber.value.length}}",
+                                        "compareValue": 13
+                                    },
+                                    {
+                                        "operator": "isLessThan",
+                                        "value": "{{sIN.state.idNumber.value.length}}",
+                                        "compareValue": 14
+                                    }
+                                ],
+                                "branch": {
+                                    "true": [
+                                        {
+                                            "type": "log",
+                                            "msg": "seems fine"
+                                        }
+                                    ],
+                                    "false": [
+                                        {
+                                            "type": "showNotification",
+                                            "msgType": "warning",
+                                            "msg": "Id Number is too long or too short",
+                                            "duration": 3000
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "First Name",
+                        "placeholder": "    Enter your First Name...",
+                        "id": "firstName",
+                        "icon": "star"
+                    }
+                }
+            ]
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "Stage Name",
+                        "placeholder": "    Enter your Stage Name...",
+                        "id": "stageName"
+                    }
+                }
+            ]
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "Last Name",
+                        "placeholder": "    Enter your Last Name...",
+                        "id": "lastName",
+                        "icon": "star"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "containerSimple",
+            "prps": {
+                "dir": "horizontal",
+                "marginBottom": "smallPadding"
+            },
+            "wgts": [
+                {
+                    "type": "containerSimple",
+                    "prps": {
+                        "margin": "tinyPadding smallPadding noPadding noPadding",
+                        "width": "15%",
+                        "dir": "horizontal"
+                    },
+                    "wgts": [
+                        {
+                            "type": "label",
+                            "prps": {
+                                "color": "white",
+                                "cpt": "Gender",
+                                "marginRight": "mediumPadding",
+                                "margin": "tinyPadding smallPadding noPadding noPadding",
+                                "fontSize": "15px"
+                            }
+                        },
+                        {
+                            "type": "icon",
+                            "prps": {
+                                "value": "star",
+                                "color": "red",
+                                "fontSize": "tinyPadding"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "prps": {
+                        "width": "60%"
+                    },
+                    "wgts": [
+                        {
+                            "id": "gender",
+                            "type": "input",
+                            "prps": {
+                                "open": "POPUP1",
+                                "border": "2px solid white",
+                                "borderRadius": "mediumPadding",
+                                "placeholder": "    Please select your gender...",
+                                "autoDropdown": true,
+                                "backgroundColor": "white",
+                                "colorPlaceholder": "grey",
+                                "width": "30vh",
+                                "lookupPrps": {
+                                    "colorCellText": "black",
+                                    "colorRowDivider": "black",
+                                    "colorCellTextHover": "white",
+                                    "colorRowHoverBg": "grey",
+                                    "colorRowBg": "iconPrimary"
+                                },
+                                "lookupData": [
+                                    {
+                                        "gender": "Female"
+                                    },
+                                    {
+                                        "gender": "Male"
+                                    },
+                                    {
+                                        "gender": "Other"
+                                    }
+                                ],
+                                "lookupFlows": [
+                                    {
+                                        "fromKey": "value",
+                                        "fromSubKey": "gender",
+                                        "toKey": "value"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "containerSimple",
+            "prps": {
+                "dir": "horizontal",
+                "marginBottom": "smallPadding"
+            },
+            "wgts": [
+                {
+                    "type": "containerSimple",
+                    "prps": {
+                        "margin": "tinyPadding smallPadding noPadding noPadding",
+                        "width": "15%"
+                    },
+                    "wgts": [
+                        {
+                            "type": "label",
+                            "prps": {
+                                "color": "white",
+                                "cpt": "    City Based",
+                                "marginRight": "mediumPadding",
+                                "margin": "tinyPadding smallPadding noPadding noPadding",
+                                "fontSize": "15px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "prps": {
+                        "width": "60%"
+                    },
+                    "wgts": [
+                        {
+                            "id": "city",
+                            "type": "input",
+                            "prps": {
+                                "backgroundColor": "white",
+                                "open": "POPUP1",
+                                "border": "2px solid white",
+                                "borderRadius": "mediumPadding",
+                                "placeholder": "    Please select City...",
+                                "autoDropdown": true,
+                                "colorPlaceholder": "grey",
+                                "width": "30vh",
+                                "lookupPrps": {
+                                    "colorCellText": "black",
+                                    "colorRowDivider": "black",
+                                    "colorCellTextHover": "white",
+                                    "colorRowHoverBg": "grey",
+                                    "colorRowBg": "iconPrimary",
+                                    "pageSize":12
+                                },
+                                "lookupData": [
+                                    {
+                                        "city": "Johannesburg"
+                                    },
+                                    {
+                                        "city": "Cape Town"
+                                    },
+                                    {
+                                        "city": "Durban"
+                                    },
+                                    {
+                                        "city": "Pretoria"
+                                    },
+                                    {
+                                        "city": "Gqeberha"
+                                    },
+                                    {
+                                        "city": "Bloemfontein"
+                                    },
+                                    {
+                                        "city": "East London"
+                                    },
+                                    {
+                                        "city": "Polokwane"
+                                    },
+                                    {
+                                        "city": "Mbombela"
+                                    },
+                                    {
+                                        "city": "Kimberley"
+                                    },
+                                    {
+                                        "city": "Other"
+                                    }
+                                ],
+                                "lookupFlows": [
+                                    {
+                                        "fromKey": "value",
+                                        "fromSubKey": "city",
+                                        "toKey": "value"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "Contact Number",
+                        "placeholder": "    (0812345678)",
+                        "id": "contactNumber",
+                        "dataType": "integer"
+                    }
+                }
+            ],
+            "prps": {
+                "scps": [
+                    {
+                        "id": "sIN",
+                        "triggers": [
+                            {
+                                "event": "onBlur",
+                                "source": "contactNumber",
+                                "matchEvaluation": "all",
+                                "match": [
+                                    {
+                                        "comparison": "isEqual",
+                                        "source": "contactNumber",
+                                        "value": "{{state.contactNumber.value.length}}",
+                                        "compareValue": 10
+                                    },
+                                    {
+                                        "comparison": "isLessThan",
+                                        "source": "contactNumber",
+                                        "value": "{{state.contactNumber.value.length}}",
+                                        "compareValue": 11
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "applyComparison",
+                                "operator": "all",
+                                "comparisons": [
+                                    {
+                                        "operator": "isEqual",
+                                        "value": "{{sIN.state.contactNumber.value.length}}",
+                                        "compareValue": 10
+                                    },
+                                    {
+                                        "operator": "isLessThan",
+                                        "value": "{{sIN.state.contactNumber.value.length}}",
+                                        "compareValue": 11
+                                    }
+                                ],
+                                "branch": {
+                                    "true": [
+                                        {
+                                            "type": "log",
+                                            "msg": "seems fine"
+                                        }
+                                    ],
+                                    "false": [
+                                        {
+                                            "type": "showNotification",
+                                            "msgType": "warning",
+                                            "msg": "Contact Number is too long or too short",
+                                            "duration": 3000
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "Email Address",
+                        "placeholder": "    Enter your Email Address...",
+                        "id": "emailAddress",
+                        "regex": "^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+                    }
+                }
+            ],
+            "prps": {
+                "scps": [
+                    {
+                        "id": "sEA",
+                        "triggers": [
+                            {
+                                "event": "onBlur",
+                                "source": "emailAddress"
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "applyComparison",
+                                "operator": "all",
+                                "comparisons": [
+                                    {
+                                        "operator": "isTruthy",
+                                        "value": "{{sEA.state.emailAddress.hasError}}"
+                                    }
+                                ],
+                                "branch": {
+                                    "true": [
+                                        {
+                                            "type": "showNotification",
+                                            "msgType": "warning",
+                                            "msg": "Email Address Format: mam@email.com",
+                                            "duration": 5000
+                                        }
+                                    ],
+                                    "false": [
+                                        {
+                                            "type": "log",
+                                            "msg": "does container at sign"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "TikTok Handle",
+                        "placeholder": "    Enter your TikTok Handle...",
+                        "id": "tikTokHandle"
+                    }
+                }
+            ],
+            "prps": {
+                "id": "sTT",
+                "scps": [
+                    {
+                        "triggers": [
+                            {
+                                "event": "onBlur",
+                                "source": "tikTokHandle"
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "applyComparison",
+                                "operator": "doesContainCase",
+                                "value": "{{state.tikTokHandle.value}}",
+                                "compareValue": "@",
+                                "branch": {
+                                    "true": [
+                                        {
+                                            "type": "log",
+                                            "msg": "does container at sign"
+                                        }
+                                    ],
+                                    "false": [
+                                        {
+                                            "type": "showNotification",
+                                            "msgType": "warning",
+                                            "msg": "Tik Tok Handle format: @HandleName",
+                                            "duration": 3000
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "containerSimple",
+            "prps": {
+                "dir": "horizontal",
+                "marginBottom": "smallPadding"
+            },
+            "wgts": [
+                {
+                    "type": "containerSimple",
+                    "prps": {
+                        "margin": "tinyPadding smallPadding noPadding noPadding",
+                        "width": "15%"
+                    },
+                    "wgts": [
+                        {
+                            "type": "label",
+                            "prps": {
+                                "cpt": "Music Genre",
+                                "marginRight": "mediumPadding",
+                                "margin": "tinyPadding smallPadding noPadding noPadding",
+                                "color": "white",
+                                "fontSize": "15px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "prps": {
+                        "width": "60%"
+                    },
+                    "wgts": [
+                        {
+                            "id": "genre",
+                            "type": "input",
+                            "prps": {
+                                "backgroundColor": "white",
+                                "open": "POPUP1",
+                                "border": "2px solid white",
+                                "borderRadius": "mediumPadding",
+                                "placeholder": "    Please select your genre...",
+                                "autoDropdown": true,
+                                "colorPlaceholder": "grey",
+                                "width": "30vh",
+                                "color": "black",
+                                "lookupPrps": {
+                                    "colorCellText": "black",
+                                    "colorRowDivider": "black",
+                                    "colorCellTextHover": "white",
+                                    "colorRowHoverBg": "grey",
+                                    "colorRowBg": "iconPrimary",
+                                    "pageSize":12
+                                },
+                                "lookupData": [
+                                    {
+                                        "genre": "Gospel"
+                                    },
+                                    {
+                                        "genre": "Afro-soul/R&B"
+                                    },
+                                    {
+                                        "genre": "Afro-pop"
+                                    },
+                                    {
+                                        "genre": "House"
+                                    },
+                                    {
+                                        "genre": "Hip-Hop/Rap"
+                                    },
+                                    {
+                                        "genre": "Kwaito"
+                                    },
+                                    {
+                                        "genre": "Reggae"
+                                    },
+                                    {
+                                        "genre": "Rock"
+                                    },
+                                    {
+                                        "genre": "Jazz"
+                                    },
+                                    {
+                                        "genre": "Classical"
+                                    },
+                                    {
+                                        "genre": "Other"
+                                    }
+                                ],
+                                "lookupFlows": [
+                                    {
+                                        "fromKey": "value",
+                                        "fromSubKey": "genre",
+                                        "toKey": "value"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "traits": [
+                {
+                    "trait": "./visibility/inputTrait",
+                    "traitPrps": {
+                        "label": "    Past Performances",
+                        "placeholder": "    Enter any Past Performances...",
+                        "id": "pastPerformance"
+                    }
+                }
+            ],
+            "prps": {
+                "marginBottom": "80px"
+            }
+        },
+        {
+            "type": "container",
+            "prps": {
+                "canClick": true,
+                "fireScript": {
+                    "id": "sAA",
+                    "actions": [
+                        {
+                            "type": "queryUrl",
+                            "url": "https://localhost:7263/api/MusicArtistInfo",
+                            "method": "POST",
+                            "body": {
+                                "idNumber": "((sAA.state.idNumber.value))",
+                                "firstName": "((sAA.state.firstName.value))",
+                                "stageName": "((sAA.state.stageName.value))",
+                                "lastName": "((sAA.state.lastName.value))",
+                                "gender": "((sAA.state.gender.value))",
+                                "cityBased": "((sAA.state.city.value))",
+                                "contactNumber": "((sAA.state.contactNumber.value))",
+                                "emailAddress": "((sAA.state.emailAddress.value))",
+                                "tikTokHandle": "((sAA.state.tikTokHandle.value))",
+                                "musicGenreStyle": "((sAA.state.genre.value))",
+                                "pastPerformance": "((sAA.state.pastPerformance.value))"
+                            }
+                        },
+                        {
+                            "type": "showNotification",
+                            "msgType": "success",
+                            "msg": "User Added Succesfully!"
+                        },
+                        {
+                            "type": "wait",
+                            "duration": 1000
+                        },
+                        {
+                            "type": "setState",
+                            "target": "view2",
+                            "key": "value",
+                            "value": "mamDashboard/viewArtists"
+                        }
+                    ]
+                },
+                "scps": [
+                    {
+                        "id": "sAA",
+                        "triggers": [
+                            {
+                                "event": "onStateChange",
+                                "matchEvaluation": "all",
+                                "match": [
+                                    {
+                                        "comparison": "isEqual",
+                                        "source": "idNumber",
+                                        "value": "{{state.idNumber.value.length}}",
+                                        "compareValue": 13
+                                    },
+                                    {
+                                        "comparison": "isLessThan",
+                                        "source": "idNumber",
+                                        "value": "{{state.idNumber.value.length}}",
+                                        "compareValue": 14
+                                    }
+                                ]
+                            },
+                            {
+                                "event": "onStateChange",
+                                "source": "firstName"
+                            },
+                            {
+                                "event": "onStateChange",
+                                "source": "lastName"
+                            },
+                            {
+                                "event": "onStateChange",
+                                "source": "gender"
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "applyComparison",
+                                "operator": "all",
+                                "comparisons": [
+                                    {
+                                        "operator": "isTruthy",
+                                        "value": "{{sAA.state.idNumber.value.length}}",
+                                        "compareValue": 13
+                                    },
+                                    {
+                                        "operator": "isLessThan",
+                                        "value": "{{sAA.state.idNumber.value.length}}",
+                                        "compareValue": 14
+                                    },
+                                    {
+                                        "operator": "isTruthy",
+                                        "value": "{{sAA.state.firstName.value}}"
+                                    },
+                                    {
+                                        "operator": "isTruthy",
+                                        "value": "{{sAA.state.lastName.value}}"
+                                    },
+                                    {
+                                        "operator": "isTruthy",
+                                        "value": "{{sAA.state.gender.value}}"
+                                    }
+                                ],
+                                "branch": {
+                                    "true": [
+                                        {
+                                            "type": "setState",
+                                            "target": "AddButton",
+                                            "key": "enabled",
+                                            "value": true
+                                        }
+                                    ],
+                                    "false": [
+                                        {
+                                            "type": "setState",
+                                            "target": "AddButton",
+                                            "key": "enabled",
+                                            "value": false
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "wgts": [
+                {
+                    "id": "AddButton",
+                    "type": "label",
+                    "prps": {
+                        "color": "white",
+                        "cpt": "Add New Artist",
+                        "padding": true,
+                        "paddingSize": "smallPadding",
+                        "borderRadius": "mediumPadding",
+                        "position": "absolute",
+                        "right": "mediumPadding",
+                        "backgroundColor": "#36464d",
+                        "enabled": false
+                    }
+                }
+            ]
+        }
+    ]
+}

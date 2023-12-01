@@ -1,0 +1,138 @@
+{
+    "type": "containerSimple",
+    "prps": {
+        "singlePage": true,
+        "padding": true,
+        "paddingSize": "smallPadding padding"
+    },
+    "wgts": [
+        {
+            "type": "containerSimple",
+            "prps": {
+                "dir": "horizontal",
+                "marginTop": "smallPadding",
+                "mainAxisAlign": "center",
+                "borderBottom": "3px solid {theme.myColors.someLightGrey}",
+                "padding": true,
+                "paddingSize": "noPadding noPadding mediumPadding smallPadding"
+            },
+            "wgts": [
+                {
+                    "type": "containerSimple",
+                    "prps": {
+                        "dir": "horizontal"
+                    },
+                    "wgts": [
+                        {
+                            "type": "label",
+                            "prps": {
+                                "cpt": "All Artists",
+                                "color": "white",
+                                "fontSize": "30px"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "containerSimple",
+            "prps": {
+                "border": true,
+                "borderRadius": "24px",
+                "backgroundColor": "#36464d",
+                "padding": true,
+                "paddingSize": "smallPadding",
+                "margin": "mediumPadding noPadding"
+            },
+            "wgts": [
+                {
+                    "traits": [
+                        {
+                            "trait": "./visibility/gridHeader",
+                            "traitPrps": {
+                                "artistId": "Artist Id",
+                                "name": "FirstName",
+                                "stageName": "Stage Name",
+                                "lastName": "LastName",
+                                "gender": "Gender",
+                                "age": "Age",
+                                "cityBased": "CityBased",
+                                "contactNumber": "Contact Number",
+                                "musicGenre": "Music Genre",
+                                "emailAddress": "EmailAddress"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "searchedArtistsGrid",
+                    "type": "repeater",
+                    "prps": {
+                        "scps": [
+                            {
+                                "triggers": [
+                                    {
+                                        "event": "onMount"
+                                    }
+                                ],
+                                "actions": [
+                                    {
+                                        "type": "queryUrl",
+                                        "url": "https://localhost:7263/api/MusicArtistInfo/searchTerm?searchTerm=((state.self.searchTerm))",
+                                        "method": "GET",
+                                        "extractResults": [
+                                            {
+                                                "path": "response.data",
+                                                "variable": "data"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "setState",
+                                        "target": "searchedArtistsGrid",
+                                        "key": "data",
+                                        "value": "{{variable.data}}"
+                                    }
+                                ]
+                            }
+                        ],
+                        "rowMda": {
+                            "type": "containerSimple",
+                            "rowPrps": {
+                                "storeRowDataAs": "rowData",
+                                "elementIdFormat": "((parentId))-((rowDataConcat.id))-((rowNumber))"
+                            },
+                            "prps": {
+                                "dir": "vertical",
+                                "overflow": "hidden"
+                            },
+                            "wgts": [
+                                {
+                                    "traits": [
+                                        {
+                                            "trait": "./visibility/gridBody",
+                                            "traitPrps": {
+                                                "artistId": "((rowData.ArtistId))",
+                                                "name": "((rowData.FirstName))",
+                                                "stageName": "((rowData.StageName))",
+                                                "lastName": "((rowData.LastName))",
+                                                "gender": "((rowData.Gender))",
+                                                "age": "((rowData.Age))",
+                                                "cityBased": "((rowData.CityBased))",
+                                                "contactNumber": "((rowData.ContactNumber))",
+                                                "musicGenre": "((rowData.MusicGenreStyle))",
+                                                "emailAddress": "((rowData.EmailAddress))",
+                                                "rowData": "{{rowData}}"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
