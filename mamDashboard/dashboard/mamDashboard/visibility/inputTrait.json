@@ -1,0 +1,89 @@
+{
+	"acceptPrps": {
+		"id": {
+			"type": "string"
+		},
+		"dataType":{
+			"type":"string"
+		},
+		"label": {
+			"type": "string"
+		},
+		"placeholder": {
+			"type": "string"
+		},
+		"required": {
+			"type": "boolean",
+			"dft": true
+		},
+		"enforceValidation": {
+			"type": "boolean",
+			"dft": true
+		},
+		"icon": {
+			"type": "string"
+		},
+		"regex": {
+			"type": "string"
+		}
+
+	},
+	"type": "containerSimple",
+	"prps": {
+		"dir": "horizontal",
+		"marginBottom": "smallPadding"
+	},
+	"wgts": [
+		{
+			"type": "containerSimple",
+			"prps": {
+				"margin": "tinyPadding smallPadding noPadding noPadding",
+				"width": "15%",
+				"dir":"horizontal"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%label%",
+						"color": "white",
+						"fontSize": "15px"
+					}
+				},
+				{
+					"type": "icon",
+					"prps": {
+						"value": "%icon%",
+						"color": "red",
+						"fontSize": "tinyPadding"
+					}
+				}
+			]
+		},
+		{
+			"type": "containerSimple",
+			"prps": {
+				"width": "60%"
+			},
+			"wgts": [
+				{
+					"id": "%id%",
+					"type": "input",
+					"prps": {
+						"placeholder": "%placeholder%",
+						"backgroundColor": "white",
+						"colorPlaceholder": "grey",
+						"border": "2px solid white",
+						"color": "black",
+						"borderRadius": "mediumPadding",
+						"enabled": "$required$",
+						"dataType":"%dataType%",
+						"enforceValidation":"$enforceValidation$",
+						"hideNumberArrows": true,
+						"regex":"%regex%"
+					}
+				}
+			]
+		}
+	]
+}

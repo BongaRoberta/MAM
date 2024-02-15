@@ -1,0 +1,15 @@
+{
+	"type": "containerSimple",
+	"prps": {
+		"singlePage": true
+	},
+	"wgts": [
+		{
+			"id":"view1",
+			"type": "viewport",
+			"prps": {
+				
+			}
+		}
+	]
+}

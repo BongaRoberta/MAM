@@ -1,0 +1,10 @@
+{
+	"themeConfig": {
+		"isStyleTheme": true
+	},
+	"veryGrey":"#232427",
+	"veryBlack":"#151619",
+	"blackest":"#010001",
+	"navy":"#004481",
+	"someLightGrey":"#2F3335"
+}

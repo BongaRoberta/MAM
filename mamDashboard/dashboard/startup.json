@@ -1,0 +1,19 @@
+{
+	"type": "containerSimple",
+	"prps": {
+		"singlePage": true,
+		"backgroundColor": "lightGrey",
+		"dir": "horizontal",
+		"mainAxisAlign": "center",
+		"crossAxisAlign": "center"
+	},
+	"wgts": [
+		{
+			"type": "label",
+			"prps": {
+				"cpt": "Welcome to the Music Artist Management",
+				"fontSize": "72px"
+			}
+		}
+	]
+}

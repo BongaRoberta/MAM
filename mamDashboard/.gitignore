@@ -1,0 +1,4 @@
+.DS_Store
+mdaPackage.json
+node_modules
+theme/packager.json

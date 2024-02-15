@@ -1,0 +1,58 @@
+{
+	"acceptPrps": {
+		"id":{
+			"type":"string"
+		},
+		"label": {
+			"type": "string"
+		},
+		"placeholder": {
+			"type": "string"
+		},
+		"required": {
+			"type": "boolean",
+			"dft": true
+		},
+		"height": {
+			"type": "string"
+		}
+	},
+	"type": "containerSimple",
+	"prps": {
+		"dir": "horizontal",
+		"marginBottom": "smallPadding"
+	},
+	"wgts": [
+		{
+			"type": "containerSimple",
+			"prps": {
+				"margin": "tinyPadding smallPadding noPadding noPadding",
+				"width": "15%"
+			},
+			"wgts": [
+				{
+					"type": "label",
+					"prps": {
+						"cpt": "%label%"
+					}
+				}
+			]
+		},
+		{
+			"type": "containerSimple",
+			"prps": {
+				"width": "60%"
+			},
+			"wgts": [
+				{
+					"id":"%id%",
+					"type": "input",
+					"prps": {
+						"placeholder": "%placeholder%",
+						"border": "1px solid black"
+					}
+				}
+			]
+		}
+	]
+}

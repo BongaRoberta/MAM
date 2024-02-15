@@ -1,0 +1,234 @@
+{
+	"id":"landingPage",
+	"type": "containerSimple",
+	"prps": {
+		"singlePage": true,
+		"backgroundColor": "#36464d",
+		"padding": true,
+		"paddingSize": "smallPadding smallPadding tinyPadding smallPadding",
+		"dir": "horizontal"
+	},
+	"wgts": [
+		{
+			"type": "containerSimple",
+			"prps": {
+				"padding": true,
+				"paddingSize": "smallPadding mediumPadding smallPadding mediumPadding",
+				"dir": "horizontal",
+				"flex": true
+			},
+			"wgts": [
+				{
+					"note": "side menu",
+					"type": "containerSimple",
+					"prps": {
+						"width": "300px",
+						"padding": true,
+						"paddingSize": "padding smallPadding smallPadding smallPadding"
+					},
+					"wgts": [
+						{
+							"type": "container",
+							"prps": {
+								"crossAxisAlign":"center",
+								"canClick":true,
+								"dir": "horizontal",
+								"fireScript":{
+									"actions":[
+										{
+											"type":"setState",
+											"target":"view2",
+											"key":"value",
+											"value":"mamDashboard/aboutUs"
+										}
+									]
+								}
+							},
+							"wgts": [
+								{
+										"type":"icon",
+										"prps":{
+											"value":"fingerprint",
+											"fontSize":"padding",
+											"marginRight":"smallPadding"
+										}
+								},
+								{
+									"type": "label",
+									"prps": {
+										"cpt": "Music Artist Management",
+										"fontSize": "32px",
+										"color": "white"
+									}
+								}
+							]
+						},
+						{
+							"type": "container",
+							"prps": {
+								"dir": "horizontal",
+								"marginTop": "bigPadding",
+								"canClick": true,
+								"fireScript": {
+									"actions": [
+										{
+											"type": "setState",
+											"key": "color",
+											"value": "{theme.myColors.someLightGrey}"
+										},
+										{
+											"type": "setState",
+											"target": "view2",
+											"key": "value",
+											"value": "mamDashboard/viewArtists"
+										}
+									]
+								}
+							},
+							"wgts": [
+								{
+									"type": "icon",
+									"prps": {
+										"value": "person",
+										"color": "white",
+										"marginRight": "smallPadding"
+									}
+								},
+								{
+									"type": "label",
+									"prps": {
+										"cpt": "Artists",
+										"fontSize": "16px",
+										"color": "white"
+									}
+								}
+							]
+						},
+						{
+							"type": "container",
+							"prps": {
+								"dir": "horizontal",
+								"marginTop": "bigPadding",
+								"canClick": true,
+								"fireScript": {
+									"actions": [
+										{
+											"type": "setState",
+											"key": "color",
+											"value": "{theme.myColors.someLightGrey}"
+										},
+										{
+											"type": "setState",
+											"target": "view2",
+											"key": "value",
+											"value": "mamDashboard/addNewArtist"
+										}
+									]
+								}
+							},
+							"wgts": [
+								{
+									"type": "icon",
+									"prps": {
+										"value": "person_add",
+										"color": "white",
+										"marginRight": "smallPadding"
+									}
+								},
+								{
+									"type": "label",
+									"prps": {
+										"cpt": "Add New Artist",
+										"fontSize": "16px",
+										"color": "white"
+									}
+								}
+							]
+						},
+						{
+							"type": "container",
+							"prps": {
+								"dir": "horizontal",
+								"marginTop": "bigPadding",
+								"canClick": true,
+								"fireScript": {
+									"actions": [
+										{
+											"type": "setState",
+											"key": "color",
+											"value": "{theme.myColors.someLightGrey}"
+										},
+										{
+											"type": "setState",
+											"target": "view2",
+											"key": "value",
+											"value": "mamDashboard/searchBar"
+										}
+									]
+								}
+							},
+							"wgts": [
+								{
+									"type": "icon",
+									"prps": {
+										"value": "person_search",
+										"color": "white",
+										"marginRight": "smallPadding"
+									}
+								},
+								{
+									"type": "label",
+									"prps": {
+										"cpt": "Search Artist",
+										"fontSize": "16px",
+										"color": "white"
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"note": "view port part",
+					"type": "containerSimple",
+					"prps": {
+						"backgroundColor": "#445760",
+						"flex": true,
+						"roundedBorders": true
+					},
+					"wgts": [
+						{
+							"id": "view2",
+							"type": "viewport",
+							"prps": {
+								"value":"mamDashboard/aboutUs"
+							}
+						},
+						{
+							"id": "NOTIFICATIONS",
+							"type": "notifications",
+							"prps": {
+								"zIndex": 1000000000000003,
+								"position": "fixed",
+								"right": "10px",
+								"top": "10px",
+								"prpsLabel": {
+									"color": "iconPrimary",
+									"bold": true
+								},
+								"prpsIcon": {
+									"color": "primary"
+								},
+								"colorBackgroundDanger": "error",
+								"colorBackgroundWarning": "warning",
+								"colorBackgroundSuccess": "success",
+								"colorBackgroundInfo": "divider",
+								"colorBackgroundError": "error"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"themeConfig": {
+		"isStyleTheme": false
+	},
+	"mdaLocation": "http://localhost:5000",
+	"guitarImage":"{theme.system.mdaLocation}/images/guitar.jpg"
+}
